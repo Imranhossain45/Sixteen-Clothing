@@ -15,10 +15,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $activeProduct=Product::where('status','publish')->paginate(10);
-        $draftProduct=Product::where('status','draft')->paginate(10);
-        $trashProduct=Product::onlyTrashed()->orderBy('id', 'desc')->paginate(10);
-        return view('backend.product.index',compact('activeProduct', 'draftProduct', 'trashProduct'));
+        $activeProduct = Product::where('status', 'publish')->paginate(10);
+        $draftProduct = Product::where('status', 'draft')->paginate(10);
+        $trashProduct = Product::onlyTrashed()->orderBy('id', 'desc')->paginate(10);
+        return view('backend.product.index', compact('activeProduct', 'draftProduct', 'trashProduct'));
     }
 
     /**
@@ -113,6 +113,32 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->status == 'draft';
+        $product->save();
+        $product->delete();
+        return back()->with('success', 'Product item Trashed');
+    }
+    public function status(Product $product)
+    {
+        if ($product->status == 'publish') {
+            $product->status = 'draft';
+            $product->save();
+        } else {
+            $product->status = 'publish';
+            $product->save();
+        }
+        return back()->with('success', $product->status == 'publish' ? 'Product item Published' : 'Product item Drafted');
+    }
+    public function reStore($id)
+    {
+        $product = Product::onlyTrashed()->find($id);
+        $product->restore();
+        return back()->with('success', 'Product item Restored!');
+    }
+    public function permDelete($id)
+    {
+        $product = Product::onlyTrashed()->find($id);
+        $product->forceDelete();
+        return back()->with('success', 'Product info Deleted!');
     }
 }

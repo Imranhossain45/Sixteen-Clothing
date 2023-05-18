@@ -17,7 +17,7 @@
 
   <div class="container">
     <div class="row justify-content-center">
-      <div class=" col-lg-8">
+      <div class="col-lg-8">
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" id="myTab" role="tablist">
 
@@ -40,7 +40,7 @@
                 <h4 class=" text-center">Active Category</h4>
               </div>
               <div class="card-body">
-                <table class=" table">
+                <table class="table">
                   <thead class="text-center">
                     <tr>
                       <th>Id</th>
@@ -49,7 +49,7 @@
                       <th>Action</th>
                     </tr>
                   </thead>
-                  <tbody class=" table">
+                  <tbody class="table">
 
                     @foreach ($activeCategories as $category)
                       <tr>
@@ -117,7 +117,7 @@
           <div class="tab-pane" id="trash">
             <div class="card">
               <div class="card-header">
-                <h4 class=" text-center">Trashed categorys</h4>
+                <h4 class="text-center">Trashed Categories</h4>
               </div>
               <div class="card-body">
                 <table class=" table">

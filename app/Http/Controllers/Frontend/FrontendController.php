@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Models\Contact;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +15,8 @@ class FrontendController extends Controller
     }
     public function product()
     {
-        return view('frontend.page.product');
+        $activeProduct = Product::all();
+        return view('frontend.page.product',compact('activeProduct'));
     }
     public function contact()
     {

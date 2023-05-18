@@ -1,11 +1,13 @@
 <?php
 
-use App\Http\Controllers\Backend\CategoryController;
-use App\Http\Controllers\Backend\ProductController;
-use App\Http\Controllers\Frontend\FrontendController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Backend\SizeController;
+use App\Http\Controllers\Backend\ColorController;
+use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Frontend\FrontendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,6 +59,28 @@ Route::middleware(['auth'])->group(
             Route::post('/update/{product}', 'update')->name('update');
             Route::get('/destroy/{product}', 'destroy')->name('trash');
             Route::get('/status/{product}', 'status')->name('status');
+            Route::get('/reStore/{id}', 'reStore')->name('reStore');
+            Route::delete('/permDelete/{id}', 'permDelete')->name('permDelete');
+        });
+        Route::controller(ColorController::class)->name('backend.color.')->prefix('color')->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::get('/create', 'create')->name('create');
+            Route::post('/store', 'store')->name('store');
+            Route::get('/edit/{color}', 'edit')->name('edit');
+            Route::post('/update/{color}', 'update')->name('update');
+            Route::get('/destroy/{color}', 'destroy')->name('trash');
+            Route::get('/status/{color}', 'status')->name('status');
+            Route::get('/reStore/{id}', 'reStore')->name('reStore');
+            Route::delete('/permDelete/{id}', 'permDelete')->name('permDelete');
+        });
+        Route::controller(SizeController::class)->name('backend.size.')->prefix('size')->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::get('/create', 'create')->name('create');
+            Route::post('/store', 'store')->name('store');
+            Route::get('/edit/{size}', 'edit')->name('edit');
+            Route::post('/update/{size}', 'update')->name('update');
+            Route::get('/destroy/{size}', 'destroy')->name('trash');
+            Route::get('/status/{size}', 'status')->name('status');
             Route::get('/reStore/{id}', 'reStore')->name('reStore');
             Route::delete('/permDelete/{id}', 'permDelete')->name('permDelete');
         });

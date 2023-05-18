@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,7 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('frontend.index');
+        $activeProduct=Product::limit(6)->get();
+        return view('frontend.index',compact('activeProduct'));
     }
     public function home()
     {

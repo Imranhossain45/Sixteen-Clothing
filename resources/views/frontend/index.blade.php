@@ -13,13 +13,14 @@
               <a href="{{ route('product') }}">view all products <i class="fa fa-angle-right"></i></a>
             </div>
           </div>
-          <div class="col-md-4">
+          @foreach ($activeProduct as $product)
+            <div class="col-md-4">
             <div class="product-item">
-              <a href="#"><img src="{{ 'frontend/assets/images/product_01.jpg' }}" alt=""></a>
+              <a href="#"><img src="{{ url('storage/product/'.$product->photo) }}" width="60" height="200" alt=""><h6 class="text-danger">${{ $product->price }}</h6></a>
               <div class="down-content">
-                <a href="#"><h4>Tittle goes here</h4></a>
-                <h6>$25.75</h6>
-                <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+                <a href="#"><h4>{{ $product->title }}</h4><a>
+
+                <p>{{ $product->description }}</p>
                 <ul class="stars">
                   <li><i class="fa fa-star"></i></li>
                   <li><i class="fa fa-star"></i></li>
@@ -31,7 +32,8 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4">
+          @endforeach
+          {{-- <div class="col-md-4">
             <div class="product-item">
               <a href="#"><img src="assets/images/product_02.jpg" alt=""></a>
               <div class="down-content">
@@ -48,8 +50,8 @@
                 <span>Reviews (21)</span>
               </div>
             </div>
-          </div>
-          <div class="col-md-4">
+          </div> --}}
+          {{-- <div class="col-md-4">
             <div class="product-item">
               <a href="#"><img src="assets/images/product_03.jpg" alt=""></a>
               <div class="down-content">
@@ -120,7 +122,7 @@
                 <span>Reviews (32)</span>
               </div>
             </div>
-          </div>
+          </div> --}}
         </div>
       </div>
     </div>

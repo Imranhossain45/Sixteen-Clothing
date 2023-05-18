@@ -87,38 +87,34 @@
           </div>
         </li>
         <!-- Product end -->
-        <!-- Lunch Start -->
+        <!-- Color Start -->
         <li class="nav-item">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLunch"
-            aria-expanded="true" aria-controls="collapseLunch">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseColor"
+            aria-expanded="true" aria-controls="collapseColor">
             <i class="fas fa-hamburger"></i>
-            <span>Lunch</span>
+            <span>Color</span>
           </a>
-          <div id="collapseLunch" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div id="collapseColor" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-
-              <a class="collapse-item" href="">Add Lunch</a>
-              <a class="collapse-item" href="">All Lunch</a>
+              <a class="collapse-item" href="{{ route('backend.color.index') }}">All Color</a>
             </div>
           </div>
         </li>
-        <!-- Lunch end -->
-        <!-- Dinner Start -->
+        <!-- Color end -->
+        <!-- Size Start -->
         <li class="nav-item">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDinner"
-            aria-expanded="true" aria-controls="collapseDinner">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSize"
+            aria-expanded="true" aria-controls="collapseSize">
             <i class="fas fa-hamburger"></i>
-            <span>Dinner</span>
+            <span>Size</span>
           </a>
-          <div id="collapseDinner" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div id="collapseSize" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-
-              <a class="collapse-item" href="">Add Dinner</a>
-              <a class="collapse-item" href="">All Dinner</a>
+              <a class="collapse-item" href="{{ route('backend.size.index') }}">All Size</a>
             </div>
           </div>
         </li>
-        <!-- Dinner end -->
+        <!-- Size end -->
         <!-- Cake_pastry Start -->
         <li class="nav-item">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCake_pastry"
